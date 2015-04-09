@@ -3,10 +3,8 @@ class AddForeignKeys < ActiveRecord::Migration
         change_table :posts do |t|
             t.references :user
         end
-        change_table :replies do |t|
+        change_table :comments do |t|
             t.references :post
-        end
-        change_table :replies do |t|
             t.references :user
         end
     end

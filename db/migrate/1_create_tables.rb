@@ -17,9 +17,9 @@ class CreateTables < ActiveRecord::Migration
         end
         #comments
         create_table :comments do |t|
-            t.string :poster
             t.string :content
             t.integer :likes
+            t.timestamps
         end
     end
 
