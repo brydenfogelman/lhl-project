@@ -28,7 +28,18 @@ html * {
 .glyphicon {
 	color: white;
 }
-/* For javascript/jQuery */
+.form-inline {
+	margin-top: 8px;
+}
+.btn-default {
+	background-image: none;
+	color: #16a085;
+}
+#email-field, #password-field {
+	border: none;
+}
+
+/* For password-check.js */
 .error {
     border-color: red;
 }
