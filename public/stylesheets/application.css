@@ -1,0 +1,40 @@
+/* Entire document */
+
+html * {
+    color: #16a085;
+    font-family: 'Droid Sans', sans-serif;
+}
+
+/* nav bar */
+.navbar-default {
+	border: none;
+	color: white;
+}
+#main-nav {
+	background-color: #16a085;
+}
+.navbar-default .navbar-brand,  .navbar-default .navbar-nav>li>a{
+	color: white;
+}
+.navbar-default .navbar-brand:hover,  .navbar-default .navbar-nav>li>a:hover{
+	color: #c0392b;
+}
+/*.navbar-default .navbar-brand:active,  .navbar-default .navbar-nav>li>a:active{
+	color: #c0392b;
+}*/
+.caret {
+	color: #c0392b;
+}
+.glyphicon {
+	color: white;
+}
+/* For javascript/jQuery */
+.error {
+    border-color: red;
+}
+
+#error-msg {
+    padding-left: 10px;
+    color: red;
+    font-weight: 200;
+}

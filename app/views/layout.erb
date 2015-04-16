@@ -1,23 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <!--
-    normalize.css removes cross-browser differences in defaults, e.g.,
-    differences in how form elements appear between Firefox and IE
-    See: http://necolas.github.com/normalize.css/
-  -->
-  <link rel="stylesheet" href="/stylesheets/normalize.css">
-  <!--
-    application.css is where you put your styles
-  -->
-  <link rel="stylesheet" href="/stylesheets/application.css">
-
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script src="/javascript/application.js"></script>
-
-  <title></title>
-</head>
-<body>
-  <%= yield %>
-</body>
+    <head>
+        <!-- Google Fonts -->
+        <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+        <!--
+        normalize.css removes cross-browser differences in defaults, e.g.,
+        differences in how form elements appear between Firefox and IE
+        See: http://necolas.github.com/normalize.css/
+        -->
+        <link rel="stylesheet" href="/stylesheets/normalize.css">
+        <!--
+        application.css is where you put your styles
+        -->
+        <link rel="stylesheet" href="/stylesheets/application.css">
+        <!-- Javascript! -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="/javascript/application.js"></script>
+        <script type="text/javascript" src="/javascript/password-check.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <title></title>
+    </head>
+    <body>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid" id="main-nav">
+                <!-- website name -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">brag about it.</a>
+                </div>
+                <!-- pages -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <!-- Add nav items here-->
+                    <ul class="nav navbar-nav navbar-right">
+                        <!-- <li><a href="/signup">Sign up<span class="sr-only">(current)</span></a></li> -->
+                        <form class="form-inline" action="/login" method="post">
+                            <div class="form-group">
+                                <label class="sr-only" for="email-field">Email:</label>               
+                                <input type="email" name="username" class="form-control" id="email-field" placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only"for="password-field">Password:</label>               
+                                <input type="password" name="password" class="form-control" id="password-field" placeholder="Password">
+                            </div>
+                            <button class="btn btn-default" type="submit">Sign In</button>
+                        </form>
+                        <!-- <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-menu-hamburger"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="/home">Home</a></li>
+                                <li><a href="/profile">Profile</a></li>
+                                <li><a href="/logout">Sign out</a></li>
+                            </ul>
+                        </li> -->
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <%= yield %>
+    </body>
 </html>
