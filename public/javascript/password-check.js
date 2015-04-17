@@ -5,13 +5,13 @@ $(document).on('ready', function() {
     
     $('#btn-submit').click(function(e) {
         e.preventDefault() // ex. stop page refreshing if that was a default event
-        if ($("#password-field").val() != $("#retype-password-field").val()) {
+        if ($("#signup-password-field").val() != $("#signup-retype-password-field").val()) {
             // add border
-            $('#password-field').addClass("error");
-            $('#retype-password-field').addClass("error");
+            $('#signup-password-field').addClass("error");
+            $('#signup-retype-password-field').addClass("error");
             // remove text
-            $("#password-field").val("");
-            $("#retype-password-field").val("");
+            $("#signup-password-field").val("");
+            $("#signup-retype-password-field").val("");
             //make the error description visible
             $("#error-msg").html("Error: the passwords do not match. Please try again!");
         } 
@@ -20,11 +20,11 @@ $(document).on('ready', function() {
         }
     });
     //had #password-field instead
-    $('#password-field, #retype-password-field').click( function() {
+    $('#signup-password-field, #signup-retype-password-field').click( function() {
         if($("#error-msg").html() != null) {
             $("#error-msg").html("");
-            $('#password-field').removeClass("error");
-            $('#retype-password-field').removeClass("error");
+            $('#signup-password-field').removeClass("error");
+            $('#signup-retype-password-field').removeClass("error");
             //tried adding a delay, didnt look very nice
             //$('#retype-password-field').removeClass("error");
         }

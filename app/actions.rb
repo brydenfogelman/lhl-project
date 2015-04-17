@@ -1,4 +1,4 @@
-# Homepage (Root path)
+require 'json'
 enable :sessions
 
 #messy, messy, messy ----> FIIIXXXX
@@ -10,8 +10,16 @@ end
 
 # => GET
 get '/' do
-	erb :index
-	#redirect '/login'
+	#if current_user
+		#redirect '/home'
+	#else
+		erb :index
+	#end
+	#redirect '/'
+end
+
+get '/home' do
+
 end
 
 get '/login' do
@@ -38,9 +46,18 @@ get '/post/new' do
 	erb :post_new
 end
 
+get '/post/all' do
+	@posts = Post.all
+	@posts.to_json
+end
+
 get '/post/:id' do
 	@post = Post.find(params[:id])
 	erb :post_view
+end
+
+get '/posts' do
+	@posts = current_user.posts.all
 end
 
 get '/login/error' do

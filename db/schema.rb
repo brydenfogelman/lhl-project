@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2) do
 
   create_table "posts", force: true do |t|
     t.string   "title"
+    t.string   "image"
     t.string   "category"
     t.string   "content"
     t.integer  "likes"
@@ -34,6 +35,7 @@ ActiveRecord::Schema.define(version: 2) do
   create_table "users", force: true do |t|
     t.string   "firstname"
     t.string   "lastname"
+    t.string   "gender"
     t.string   "username"
     t.string   "email"
     t.string   "password"

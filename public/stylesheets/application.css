@@ -18,6 +18,7 @@ html * {
 }
 .navbar-default .navbar-brand:hover,  .navbar-default .navbar-nav>li>a:hover{
 	color: #c0392b;
+	text-shadow: none;
 }
 /*.navbar-default .navbar-brand:active,  .navbar-default .navbar-nav>li>a:active{
 	color: #c0392b;
@@ -35,7 +36,7 @@ html * {
 	background-image: none;
 	color: #16a085;
 }
-#email-field, #password-field {
+.form-inline #email-field, .form-inline #password-field {
 	border: none;
 }
 

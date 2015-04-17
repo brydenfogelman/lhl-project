@@ -21,11 +21,11 @@
                     <input type="email" name="username" class="form-control" id="email-field" placeholder="Enter your email...">
                 </div>
                 <div class="form-group">
-                    <label for="password-field">Password:</label>               
+                    <label for="signup-password-field">Password:</label>               
                     <input type="password" name="password" class="form-control" id="password-field">
                 </div>
                 <div class="form-group">
-                    <label for="retype-password-field">Retype password:</label>               
+                    <label for="signup-retype-password-field">Retype password:</label>               
                     <input type="password" class="form-control" id="retype-password-field">
                 </div>
                 <div class="form-group">
@@ -35,14 +35,18 @@
             </form>
         </div>
         <div class="col-md-6">
-        	<h1>Future home of the live preview<h1>
-        	<p>could set up and ajax function that will randomly pull posts that have been created<p>
+        	<h1>Future home of the live preview</h1>
+        	<p>could set up and ajax function that will randomly pull posts that have been created</p>
         	<p>Pseudoish-code
         		- arr = Post.all
         		- int = arr.size
         		- random number between 0 and size - 1
-        		- choose a new post every x amount of secs<p>
-        	<p>probs need to create a new action /post/all that will return some json?<p>
+        		- choose a new post every x amount of secs</p>
+        	<p>probs need to create a new action /post/all that will return some json?</p>
+        	<div id="inject"></div>
+        	<div class="jumbotron">
+        		<h3 id="post-title"></h3>
+        	</div>
         </div>
     </div>
 </div>
