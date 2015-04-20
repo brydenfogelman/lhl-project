@@ -5,8 +5,13 @@ $(document).on('ready', function(){
 		dataType: 'json',
 		success: function(data){
 			console.log(data)
-			$('#post-title').append(data[0].title)
+			if (data[0]) {
+				$('#post-title').append(data[0].title)
+			}
+			
+		},
+		error: function(){
+			console.log('error')
 		}
-
 	})
 });

@@ -8,6 +8,11 @@ helpers do
 	end
 end
 
+image_global = nil
+# configure do
+# 	set :image_base64
+# end
+
 # => GET
 get '/' do
 	#if current_user
@@ -105,16 +110,25 @@ post '/signup' do
 end
 
 post '/post/create' do
-	title = params[:title]
-	category = params[:category]
-	content = params[:content]
-	#@post = Post.where()
-	puts "test"
-	@post = current_user.posts.create(
-		title: title,
-		category: category,
-		content: content,
-		likes: 0,
-	)
-	redirect "/post/#{@post.id}"
+		title = params[:title]
+		category = params[:category]
+		content = params[:content]
+		image = params[:image_base64]
+		#@post = Post.where()
+		@post = current_user.posts.create(
+			title: title,
+			category: category,
+			content: content,
+			likes: 0,
+			image: image
+		)
+		redirect "/post/#{@post.id}"
+		
 end
+
+# get '/upload' do
+# 	# if settings.image_base64 == nil
+# 	# 	settings.image_base64 = params[:image_base64]
+# 	# end
+# 	image_global = params[:image_base64]
+# end
