@@ -19,7 +19,9 @@ get '/' do
 end
 
 get '/home' do
-
+	@posts = Post.all.reverse
+	@posts.to_json
+	erb :home
 end
 
 get '/login' do
@@ -46,7 +48,7 @@ get '/post/new' do
 	erb :post_new
 end
 
-get '/post/all' do
+get '/post/all.json' do
 	@posts = Post.all
 	@posts.to_json
 end
@@ -56,9 +58,9 @@ get '/post/:id' do
 	erb :post_view
 end
 
-get '/posts' do
-	@posts = current_user.posts.all
-end
+# get "/#{current_user}/post/all" do
+# 	@posts = current_user.posts.all
+# end
 
 get '/login/error' do
 	# load error page here
