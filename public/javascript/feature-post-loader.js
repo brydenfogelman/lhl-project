@@ -1,6 +1,6 @@
 $(document).on('ready', function(){
 	$.ajax({
-		url: '/post/all.json',
+		url: '/post/all',
 		type: 'get',
 		dataType: 'json',
 		success: function(data){

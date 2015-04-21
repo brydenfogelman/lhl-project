@@ -7,8 +7,5 @@ class AddForeignKeys < ActiveRecord::Migration
             t.references :post
             t.references :user
         end
-        change_table :posts do |t|
-        	t.references :myUploader
-        end
     end
 end

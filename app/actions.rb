@@ -1,32 +1,19 @@
 require 'json'
-require 'carrierwave'
-require 'carrierwave/orm/activerecord'
 enable :sessions
 
-#messy, messy, messy ----> FIIIXXXX
 helpers do
 	def current_user
 		@current_user = User.find_by(id: session[:user_id]) if session[:user_id]
 	end
 end
 
-image_global = nil
-# configure do
-# 	set :image_base64
-# end
-
 # => GET
 get '/' do
-	#if current_user
-		#redirect '/home'
-	#else
-		erb :index
-	#end
-	#redirect '/'
+	erb :index
 end
 
 get '/home' do
-	@posts = Post.all.reverse
+	@posts = Post.first
 	@posts.to_json
 	erb :home
 end
@@ -45,7 +32,6 @@ get '/signup' do
 end
 
 get '/logout' do
-	# load logout page here
 	session.clear
 	redirect '/'
 end
@@ -55,7 +41,7 @@ get '/post/new' do
 	erb :post_new
 end
 
-get '/post/all.json' do
+get '/post/all' do
 	@posts = Post.all
 	@posts.to_json
 end
@@ -64,10 +50,6 @@ get '/post/:id' do
 	@post = Post.find(params[:id])
 	erb :post_view
 end
-
-# get "/#{current_user}/post/all" do
-# 	@posts = current_user.posts.all
-# end
 
 get '/login/error' do
 	# load error page here
@@ -112,30 +94,17 @@ post '/signup' do
 end
 
 post '/post/create' do
-		title = params[:title]
-		category = params[:category]
-		content = params[:content]
-		image = params[:image_base64]
-		#@post = Post.where()
-		@post = current_user.posts.create(
-			title: title,
-			category: category,
-			content: content,
-			likes: 0,
-			image: image
-		)
-		redirect "/post/#{@post.id}"
-		
+	title = params[:title]
+	category = params[:category]
+	content = params[:content]
+	image = params[:image]
+	#@post = Post.where()
+	@post = current_user.posts.create(
+		title: title,
+		category: category,
+		content: content,
+		likes: 0,
+		image: image
+	)
+	#redirect "/post/#{@post.id}"
 end
-
-post '/upload' do
-	file = params[:file]
-	@post = Post.create(file: file)
-end
-
-# get '/upload' do
-# 	# if settings.image_base64 == nil
-# 	# 	settings.image_base64 = params[:image_base64]
-# 	# end
-# 	image_global = params[:image_base64]
-# end

@@ -12,7 +12,10 @@ $(document).on('ready', function() {
 	             	method: 'post',
 	             	url: '/post/create',
 	             	data: {
-	             		image_base64: e.target.result
+	             		title: $('#title-field').val(),
+	             		category: $('#category-field').val(),
+	             		content: $('#content-field').val(),
+	             		image: e.target.result
 	             	},
 	             	success: function(data){
 	             		console.log(data)
@@ -39,13 +42,9 @@ $(document).on('ready', function() {
 	};
 
 	$("#file-field").change(function(){
-	 //    console.log(this);
-	 //    var test = image_to_base64(this);
-		// console.log(image_to_base64(this))
-	    //console.log($("#image-field").change())
-		// uploadImage(this);
-		console.log(this.val())
+		uploadImage(this);
 	});
+
 	$('#submit').click(function(){
 
 	})
