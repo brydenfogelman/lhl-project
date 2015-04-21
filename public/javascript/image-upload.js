@@ -11,7 +11,9 @@ $(document).on('ready', function() {
 	             $.ajax({
 	             	method: 'post',
 	             	url: '/post/create',
-	             	data: {image_base64: e.target.result},
+	             	data: {
+	             		image_base64: e.target.result
+	             	},
 	             	success: function(data){
 	             		console.log(data)
 	             	},
@@ -36,12 +38,13 @@ $(document).on('ready', function() {
 
 	};
 
-	$("#image-field").change(function(){
-	    console.log(this);
-	    var test = image_to_base64(this);
-		console.log(image_to_base64(this))
+	$("#file-field").change(function(){
+	 //    console.log(this);
+	 //    var test = image_to_base64(this);
+		// console.log(image_to_base64(this))
 	    //console.log($("#image-field").change())
 		// uploadImage(this);
+		console.log(this.val())
 	});
 	$('#submit').click(function(){
 

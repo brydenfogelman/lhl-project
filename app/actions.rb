@@ -129,12 +129,10 @@ post '/post/create' do
 end
 
 post '/upload' do
-	post = Post.new
-	post.file = params[:file]
-	puts params[:file]
-	post.save!
-	puts post.file
+	file = params[:file]
+	@post = Post.create(file: file)
 end
+
 # get '/upload' do
 # 	# if settings.image_base64 == nil
 # 	# 	settings.image_base64 = params[:image_base64]
