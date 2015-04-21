@@ -14,6 +14,7 @@ class CreateTables < ActiveRecord::Migration
         create_table :posts do |t|
             t.string :title
             t.string :image
+            t.string :file
             t.string :category
             t.string :content
             t.integer :likes

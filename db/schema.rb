@@ -24,12 +24,14 @@ ActiveRecord::Schema.define(version: 2) do
   create_table "posts", force: true do |t|
     t.string   "title"
     t.string   "image"
+    t.string   "file"
     t.string   "category"
     t.string   "content"
     t.integer  "likes"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.integer  "myUploader_id"
   end
 
   create_table "users", force: true do |t|
