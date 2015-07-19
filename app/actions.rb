@@ -7,15 +7,24 @@ helpers do
 	end
 end
 
+before do
+  redirect '/' if !current_user && request.path != '/login' && request.path != '/signup' && request.path != '/'
+end
+
 # => GET
 get '/' do
-	erb :index
+	@post = Post.first
+	erb :landing
 end
 
 get '/home' do
-	@posts = Post.first
-	@posts.to_json
-	erb :home
+	# binding.pry
+	@posts = Post.all
+	erb :index
+end
+
+get '/signup' do
+	erb :signup
 end
 
 get '/login' do
@@ -27,21 +36,16 @@ get '/profile' do
     erb :profile
 end
 
-get '/signup' do
-	erb :signup
-end
-
 get '/logout' do
 	session.clear
 	redirect '/'
 end
 
 get '/post/new' do
-	puts "test"
 	erb :post_new
 end
 
-get '/post/all' do
+get '/post/all.json' do
 	@posts = Post.all
 	@posts.to_json
 end
@@ -49,10 +53,6 @@ end
 get '/post/:id' do
 	@post = Post.find(params[:id])
 	erb :post_view
-end
-
-get '/login/error' do
-	# load error page here
 end
 
 # => POST
@@ -63,9 +63,9 @@ post '/login' do
 	@user = User.find_by(username: username)
 	if @user.password == password
 		session[:user_id] = @user.id
-		redirect '/profile'
+		redirect '/home'
 	else
-		redirect '/login'
+		redirect '/'
 	end
 end
 
@@ -89,7 +89,7 @@ post '/signup' do
 			password: password,
 		)
 		session[:user_id] = @user.id
-		redirect '/profile'
+		redirect '/home'
 	end
 end
 
@@ -106,5 +106,5 @@ post '/post/create' do
 		likes: 0,
 		image: image
 	)
-	#redirect "/post/#{@post.id}"
+	redirect "/post/#{@post.id}"
 end

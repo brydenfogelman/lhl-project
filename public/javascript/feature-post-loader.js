@@ -1,17 +1,17 @@
 $(document).on('ready', function(){
-	$.ajax({
-		url: '/post/all',
-		type: 'get',
-		dataType: 'json',
-		success: function(data){
-			console.log(data)
-			if (data[0]) {
-				$('#post-title').append(data[0].title)
-			}
+	// $.ajax({
+	// 	url: '/post/all',
+	// 	type: 'get',
+	// 	dataType: 'json',
+	// 	success: function(data){
+	// 		console.log(data)
+	// 		if (data[0]) {
+	// 			$('#post-title').append(data[0].title)
+	// 		}
 			
-		},
-		error: function(){
-			console.log('error')
-		}
-	})
+	// 	},
+	// 	error: function(){
+	// 		console.log('error')
+	// 	}
+	// })
 });

@@ -1,5 +1,4 @@
 /* Entire document */
-
 html * {
     color: #16a085;
     font-family: 'Droid Sans', sans-serif;
@@ -15,30 +14,84 @@ html * {
 }
 .navbar-default .navbar-brand,  .navbar-default .navbar-nav>li>a{
 	color: white;
-}
-.navbar-default .navbar-brand:hover,  .navbar-default .navbar-nav>li>a:hover{
-	color: #c0392b;
 	text-shadow: none;
 }
-/*.navbar-default .navbar-brand:active,  .navbar-default .navbar-nav>li>a:active{
-	color: #c0392b;
-}*/
+.navbar-default .navbar-brand:hover,  .navbar-default .navbar-nav>li>a:hover{
+	color: black;
+	text-shadow: none;
+}
 .caret {
 	color: #c0392b;
 }
 .glyphicon {
 	color: white;
 }
-.form-inline {
+/*.form-inline {
 	margin-top: 8px;
-}
+}*/
 .btn-default {
 	background-image: none;
 	color: #16a085;
 }
-.form-inline #email-field, .form-inline #password-field {
+.navbar-form #email-field, .navbar-form #password-field {
 	border: none;
 }
+
+/* form */
+#form #first-name-field,  #form #last-name-field{
+	width: 48%;
+	display: inline;
+}
+
+#form #last-name-field {
+	float: right;
+}
+
+/* post */
+#placeholder {
+	width: 250px;
+	height: 250px;
+	position: relative;
+}
+
+.image {
+	width: 250px;
+	height: 250px;
+	vertical-align: middle;
+}
+
+.post-content {
+	background: rgba(0,0,0,0.5);
+	color: white;
+	cursor: pointer;
+	display: table;
+	height: auto;
+	//left: 0;
+	position: absolute;
+	top: 0;
+	width: 250px;
+	opacity: 0;
+}
+.col-md-3 a:hover div.post-content{
+	opacity: 1;
+}
+/*span.text-content {
+  background: rgba(0,0,0,0.5);
+  color: white;
+  cursor: pointer;
+  display: table;
+  height: 150px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 150px;
+}
+ 
+span.text-content span {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}*/
 
 /* For password-check.js */
 .error {
